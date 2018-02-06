@@ -1,0 +1,49 @@
+html, body {
+ margin: 0;
+ padding: 0;
+ font-family: 'Roboto', sans-serif;
+ width:100%;
+}
+.padding{
+background:url('../img/back.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+}
+
+.date {
+   color: #B8B6BF ;
+   font-size: 12px;
+   font-weight: 200;
+}
+
+
+.slider {
+  height: 100%;
+  text-align: center
+}
+.scroll { height: 100% }
+
+
+
+.slider-slide {
+  padding-top: 80px;
+  color: #2a5a2b;
+  text-align: center;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  background:url('../img/back2.jpg') no-repeat center center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          background-size: cover;
+}
+
+#logo {
+  margin: 30px 0px;
+}
+
+
+
+.button.ng-hide{
+  display:none;
+}

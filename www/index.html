@@ -1,0 +1,371 @@
+<html ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>App PEV</title>
+
+    <link href="http://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+
+    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+<!-- app's js -->
+    <script src="js/app.js"></script>
+  </head>
+
+  <body>
+
+    <!-- INTRO -->
+
+        <script id="templates/intro.html" type="text/ng-template">
+          <ion-content ng-controller="IntroCtrl">
+            <ion-view view-title="Introdução">
+
+              <ion-nav-buttons side="left">
+                <button class="button button-balanced button-clear no-animSation"
+                        ng-click="startApp()" ng-show="!slideIndex">
+                  Pular Intro
+                </button>
+                <button class="button button-balanced button-clear no-animation"
+                        ng-click="previous()" ng-show="slideIndex > 0">
+                  Anterior
+                </button>
+              </ion-nav-buttons>
+
+              <ion-nav-buttons side="right">
+                <button class="button button-balanced button-clear no-animation"
+                        ng-click="next()" ng-show="slideIndex != 1">
+                  Próximo
+                </button>
+                <button class="button button-balanced button-clear no-animation"
+                        ng-click="startApp()" ng-show="slideIndex == 1">
+                  Iniciar
+                </button>
+              </ion-nav-buttons>
+
+              <ion-slide-box on-slide-changed="slideChanged(index)">
+                <ion-slide>
+                  <h3 style="color: #2a5a2b;">Aplicativo Projeto Escola Verde</h3>
+                  <div id="logo">
+                    <img ng-src="../www/img/icon.png">
+                  </div>
+                  <div class="card">
+                    <p style="text-align:justify; text-indent: 2em; margin: 20; font-size: 15px">
+                      {{ text.text1 }}
+                    </p>
+                </div>
+                </ion-slide>
+
+                <ion-slide>
+                  <h3 style="color: #2a5a2b;">APP - PEV</h3>
+                  <div class="card">
+                    <p style="text-align:justify; text-indent: 2em; margin: 20; font-size: 15px">
+                      {{ text.text2 }}
+                    </p>
+                  </div>
+                </ion-slide>
+              </ion-slide-box>
+
+            </ion-view>
+          </ion-content>
+        </script>
+
+
+<!-- BARRA SUPERIOR -->
+
+    <ion-nav-bar class="bar-light" align-title="center">
+      <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view>
+
+
+<!-- BARRA INFERIOR -->
+
+    <script id="templates/tabs.html" type="text/ng-template">
+      <ion-tabs class="tabs-icon-top tabs-light">
+
+        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Contato" icon="ion-ios-world" ui-sref="tabs.contact">
+          <ion-nav-view name="contact-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Sobre" icon="ion-ios-information" href="#/tab/about">
+          <ion-nav-view name="about-tab"></ion-nav-view>
+        </ion-tab>
+
+      </ion-tabs>
+    </script>
+
+
+
+<!-- HOME -->
+
+    <script id="templates/home.html" type="text/ng-template">
+      <ion-view view-title="Home">
+        <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="padding" ng-controller="SwipeCtrl">
+            <p class="animated bounceInLeft">
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#/tab/project">O que é o PEV?</a>
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#/tab/conceitos">Conceitos</a>
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#/tab/cartilhas">Cartilhas de Educação Ambiental</a>
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#/tab/legislacao">Legislação de Educação Ambiental</a>
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#/tab/educambdisc">Educação Ambiental nas Disciplinas</a>
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#" onclick="window.open('http://escolaverde.org/site/?page_id=373', '_self', 'location=no'); return false;">Galeria de Fotos</a>
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#" onclick="window.open('http://escolaverde.org/site/?page_id=27', '_self', 'location=no'); return false;">Últimas Notícias</a>
+              <a class="button button-full button-balanced icon icon-right ion-chevron-right" href="#/tab/agradecimentos">Agradecimentos</a>
+            </p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+
+<!-- OQUE É O PEV? -->
+
+    <script id="templates/project.html" type="text/ng-template">
+      <ion-view view-title="O que é o PEV?">
+        <ion-content class="padding" ng-controller="oqueCtrl">
+          <div class="card animated bounceInLeft">
+            <div class="item item-text-wrap">
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text1 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text2 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text3 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text4 }}</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+<!-- CONCEITOS -->
+
+    <script id="templates/conceitos.html" type="text/ng-template">
+      <ion-view view-title="Conceitos">
+        <ion-content class="padding">
+          <p class="animated bounceInLeft">
+            <a class="button button-full button-balanced icon icon-right ion-leaf" href="#/tab/meioamb">Meio Ambiente</a>
+            <a class="button button-full button-balanced icon icon-right ion-leaf" href="#/tab/educamb">Educação Ambiental</a>
+            <a class="button button-full button-balanced icon icon-right ion-leaf" href="#/tab/desesus">Desenvolvimento Sustentável</a>
+          </p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/meioamb.html" type="text/ng-template">
+      <ion-view view-title="Meio Ambiente">
+        <ion-content class="padding" ng-controller="meioambCtrl">
+          <div class="card animated bounceInLeft">
+            <div class="item item-text-wrap">
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text1 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text2 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text3 }}</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/educamb.html" type="text/ng-template">
+      <ion-view view-title="Educação Ambiental">
+        <ion-content class="padding" ng-controller="educambCtrl">
+          <div class="card animated bounceInLeft">
+            <div class="item item-text-wrap">
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text1 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text2 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text3 }}</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/desesus.html" type="text/ng-template">
+      <ion-view view-title="Desenvolvimento Sustentável">
+        <ion-content class="padding" ng-controller="desesusCtrl">
+          <div class="card animated bounceInLeft">
+            <div class="item item-text-wrap">
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text1 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text2 }}</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+
+<!-- CARTILHAS -->
+
+    <script id="templates/cartilhas.html" type="text/ng-template">
+     <ion-view view-title="Cartilhas">
+       <ion-content class="padding" ng-controller="cartilhasCtrl">
+         <div class="card animated bounceInLeft" ng-repeat="text in texts">
+           <div class="item item-divider">
+             <p style="text-align:justify;">{{ text.header }}</p>
+           </div>
+           <div class="item item-text-wrap">
+             <p style="text-align:justify; text-indent: 2em;">{{ text.text }}</p>
+           </div>
+           <div class="item item-divider">
+             <p><a class="button button-outline button-balanced icon icon-right ion-leaf" href="{{ text.path }}" onclick="window.open(this.href, '_system', 'location=no'); return false;">Leia mais!</a></p>
+           </div>
+         </div>
+       </ion-content>
+     </ion-view>
+    </script>
+
+<!-- LEGISLAÇÂO -->
+
+    <script id="templates/legislacao.html" type="text/ng-template">
+     <ion-view view-title="Legislação">
+       <ion-content class="padding" ng-controller="legislacaoCtrl">
+         <div class="card animated bounceInLeft" ng-repeat="text in texts">
+           <div class="item item-divider">
+             <p style="text-align:justify;">{{ text.header }}</p>
+           </div>
+           <div class="item item-text-wrap">
+             <p style="text-align:justify; text-indent: 2em;">{{ text.text }}</p>
+           </div>
+           <div class="item item-divider">
+             <p><a class="button button-outline button-balanced icon icon-right ion-leaf" href="{{ text.path }}" onclick="window.open(this.href, '_system', 'location=no'); return false;">Leia mais!</a></p>
+           </div>
+         </div>
+       </ion-content>
+     </ion-view>
+   </script>
+
+<!-- EDUCAÇÃO AMBIENTAL NAS DISCIPLINAS -->
+
+    <script id="templates/educambdisc.html" type="text/ng-template">
+     <ion-view view-title="Educação Ambiental nas Disciplinas">
+       <ion-content class="padding">
+         <div class="card animated bounceInLeft">
+           <div class="item item-divider">
+             <p style="text-align:justify;">Livro de Exercícios</p>
+           </div>
+           <div class="item item-text-wrap">
+             <p style="text-align:justify; text-indent: 2em;">Este livro de questões foi produzido a partir da compilação de diversas questões de disciplinas como português, matemática, biologia, química, sociologia e geografia, que abordam a questão ambiental em seus enunciados.</p>
+           </div>
+           <div class="item item-divider">
+             <p><a class="button button-outline button-balanced icon icon-right ion-leaf" onclick="window.open('http://www.escolaverde.org/pevmovel/Livro%20de%20questoes%20de%20tematica%20ambiental.pdf', '_system', 'location=no'); return false;">Abrir o livro.</a></p>
+           </div>
+         </div>
+        <div class="card animated bounceInLeft">
+          <div class="item item-divider">
+           <p style="text-align:justify;">Jogo da Reciclagem</p>
+         </div>
+          <div class="item item-image">
+            <img ng-src="img/game_screen.png">
+          </div>
+          <div class="item item-divider">
+           <p><a class="button button-outline button-balanced icon icon-right ion-leaf" onclick="window.open('../www/jogo/index.html', '_blank', 'location=no'); return false;">Abrir o jogo.</a></p>
+         </div>
+        </div>
+       </ion-content>
+     </ion-view>
+    </script>
+
+
+<!-- AGRADECIMENTOS -->
+
+    <script id="templates/agradecimentos.html" type="text/ng-template">
+      <ion-view view-title="Agradecimentos">
+        <ion-content class="padding" ng-controller="agradecimentosCtrl">
+          <div class="card animated bounceInLeft">
+            <div class="item item-text-wrap">
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text1 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text2 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text3 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text4 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text5 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text6 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text7 }}</p>
+              <p style="text-align:justify; text-indent: 2em;">{{ text.text8 }}</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+<!-- CONTATO -->
+
+    <script id="templates/contact.html" type="text/ng-template">
+      <ion-view title="Contato">
+        <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="padding" ng-controller="SwipeCtrl">
+          <div class="list animated bounceInLeft">
+            <div class="item item-divider">
+              Endereço:
+            </div>
+            <div class="item">
+              <p>Av. Antônio Carlos Magalhães, 510, Maringá.</p>
+              <p>Juazeiro, Bahia.</p>
+            </div>
+            <div class="item item-divider">
+              Telefone:
+            </div>
+            <div class="item">
+              <p>+55 (87) 98105-2994</p>
+            </div>
+            <div class="item item-divider">
+              E-mail:
+            </div>
+            <div class="item">
+              <p>escolaverde@univasf.edu.br</p>
+            </div>
+            <div class="item">
+              <p>eainterdisciplinar@gmail.com</p>
+            </div>
+            <div class="item item-divider">
+              Site:
+            </div>
+            <div class="item">
+              <p class="button button-clear button-balanced icon icon-right ion-ios-redo" href="#" onclick="window.open('http://escolaverde.org/site/', '_self', 'location=no'); return false;">escolaverde.org&nbsp;</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+<!-- ABOUT -->
+
+    <script id="templates/about.html" type="text/ng-template">
+      <ion-view view-title="Sobre">
+        <ion-content on-swipe-right="goBack()" on-swipe-left="goForward()" class="padding" ng-controller="SwipeCtrl">
+          <h3 align="center" style="color:green;">Projeto Escola Verde - PEV</h3>
+          <div class="list animated bounceInLeft">
+            <div class="item item-divider">
+              Versão:
+            </div>
+            <div class="item">
+              <p>1.0</p>
+            </div>
+            <div class="item item-divider">
+              Desenvolvido por:
+            </div>
+            <div class="item">
+              <p>Esron Dtamar da Silva</p>
+            </div>
+            <div class="item">
+              <p>Gabriel Rafael Gomes</p>
+            </div>
+            <div class="item">
+              <p>Johnathan Alves Silva</p>
+            </div>
+            <div class="item">
+              <p>Leonardo Cavalcante do Prado</p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+
+
+  </body>
+</html>

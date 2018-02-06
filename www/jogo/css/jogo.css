@@ -1,0 +1,131 @@
+* {
+	margin:0 auto;
+}
+
+body {
+	background: rgb(255,255,255) url(../img/bgFundo.jpg) repeat-x;
+}
+
+#game{ 
+	border: 1px solid #999;
+	width: 800px;
+	height:530px;	
+	margin: 5px 10px;
+	float:left;
+}
+
+#background-game{
+	height:530px;
+	width:800px;
+	opacity:0.6;
+	filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+	
+#panel{
+	float:left;
+	margin: 0 auto;
+	width:180px;
+	height:530px;
+	border:1px solid #999;
+	background: url(../img/bgFundo.jpg) repeat-x;
+	margin: 5px;
+}	
+
+#body {
+	margin: 0 auto;
+	height:542px;
+	width:1018px;
+}
+
+#header {
+	width: 1008px;
+	height: 60px;
+	margin: 0 auto;
+	padding: 5px;
+	display:block;
+}
+
+#icon {
+	margin: 5px;
+	float:left;
+	width: 50px;
+	height:50px;
+}
+
+p {
+	text-align:center; 
+	color:#999;
+}
+
+.info {
+	padding:10px;
+}
+
+.info2 {
+	margin-left:15px !important;
+	padding-top:5px !important;
+}
+
+#material {
+	width: 105px;
+	height: 151px;
+	margin-top:92px;
+	margin-left:35px;
+	float:left;
+}
+
+a {
+	text-decoration:none;
+	color: #999;
+	margin:30px 20px 20px 60px;
+}
+
+button{
+	margin:5px 5px 5px 15px !important;
+	width:150px;
+}
+
+h2 {
+	float:left;
+	margin:15px 20px 0px 20px;
+}
+
+#aux {
+	width:1047px;
+	height:620px;
+	margin:0 auto;
+}
+
+#hideaudio {
+    display:none;
+}
+
+#goal {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+
+#carregando 
+{
+position:absolute;
+/*top:25px;
+left:694px;
+*/
+font: 15px "Trebuchet MS", Tahoma, Verdana;	
+text-align:center;	
+color:red;
+width:88px;  
+height:18px;	
+display:block;
+cursor:hand;
+}
+
+#mascara{
+    display:none;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:9000;
+    background-color:#000;
+}

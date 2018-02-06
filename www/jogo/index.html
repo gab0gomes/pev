@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C/DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8">
+		<title>Jogo de Reciclagem</title>
+
+        <link rel="stylesheet" type="text/css" href="css/jogo.css" />
+
+        <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.10.0.custom.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.0.custom.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/jogo.js"></script>
+
+	</head>
+
+	<body>
+		<div id="aux">
+            <div id="header">
+				<img src="img/icon.png" alt="icon" id="icon" />
+				<h2>Jogo de Reciclagem. Aprenda a reciclar brincando!</h2>
+				<!-- <img id="appengine" src="https://developers.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /> -->
+			</div>
+
+            <div id="body">
+            	<div id="mascara">
+                	<div id="carregando"><img src="img/ajax-loader.gif">Carregando...</div>
+                </div>
+
+                <div id="jogo">
+                    <div id="game" onselectstart='return false' ondragstart='return false' oncontextmenu='return false'>
+                        <img id="background-game" src="img/background.png" />
+                        <!--
+                            onselectstart: bloquear sele��es,
+                            ondragstart:   bloquear �arrastar e soltar� e
+                            oncontextmenu: bloquear bot�o direito do mouse.
+                        -->
+                        <img id="goal" src="" />
+                    </div>
+                    <div id="panel">
+                        <a href="#" id="instrucoes"><h4 style="margin:5px 5px 5px 45px !important;">Instruções</h4></a>
+                        <button id="begin" class="btn btn-primary btn-success btn-small" style="outline:none;">Iniciar jogo</button>
+                        <button id="pause" class="btn btn-primary btn-warning btn-small" style="outline:none;">Pausar jogo</button>
+                        <button id="end" class="btn btn-primary btn-danger btn-small" style="outline:none;">Parar jogo</button>
+
+                        <div id="pont" class="info2">Pontuação: 0</div>
+                        <div id="time" class="info2">Tempo: 80</div>
+                        <br />
+                        <div style="float:left; height:40px; width:178px;">
+                            <center><p id="msg"></p></center>
+                        </div>
+
+                        <div id="dialog" title="Instruções">
+                            <p style="text-align:left !important;">
+                            Acerte os alvos de acordo o tipo de material mostrado na lixeira que aparece no painel do lado direito.
+                            <br/><br/>Você <strong>perde</strong> 10 pontos se acertar alvos que não correspondem ao tipo de material corrente.
+                            <br/><br/>Você <strong>ganha</strong> 20 pontos se acertar o alvo correspondente ao tipo de material.
+                            <br/><br/>Bom jogo!</p>
+                        </div>
+
+                        <div id="material"></div>
+                        <div id="hideaudio"></div>
+					</div>
+				</div>
+			</div>
+
+			<p>Desenvolvido por Leonardo Campello (Bolsista do <a style="margin:0px;" href="http://www.escolaverde.univasf.edu.br" target="_blank">Projeto Escola Verde</a>)</p>
+        </div>
+	</body>
+</html>
